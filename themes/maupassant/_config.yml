@@ -84,10 +84,13 @@ widgets: ## Six widgets in sidebar provided: search, category, tag, recent_posts
   - category
   - recent_posts
   - recent_comments
+  - links
 
 links:
-  #- title: TeXPage 首页 
-  #  url: https://www.texpage.com
+  - title: TeXPage 首页 
+    url: https://www.texpage.com
+  - title: TeXPage 个人主页 
+    url: https://www.texpage.com/console
 
 timeline:
   - num: 1
