@@ -6,14 +6,29 @@
   s.parentNode.insertBefore(hm, s);
   })();
 </script><script type="text/javascript" src="//cdn.jsdelivr.net/npm/clipboard/dist/clipboard.min.js"></script><meta name="generator" content="Hexo 4.2.1"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">LaTeX 中文支持</h1><a id="logo" href="/." style="font-family:Courier;">TeXPage</a><p class="description">TeXPage 官网文档</p></div><div id="nav-menu"></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">LaTeX 中文支持</h1><div class="post-meta">2020-07-04<span> | </span><span class="category"><a href="/categories/LaTeX-%E6%95%99%E7%A8%8B/">LaTeX 教程</a></span></div><div class="post-content"><p>LaTeX 最初是不支持中文的，后来才添加了unicode 字符的支持。经过热爱 LaTeX 的开源英雄们的努力，现在可以愉快的在 LaTeX 中编写中文了。</p>
-<p>LaTeX 的中文支持方案有 CTeX，ctexart 以及 xeCJK 三个方案，我们推荐使用 xeCJK 方案。在使用 xeCJK 时，需要使用 xelatex 编译 LaTeX 文档。</p>
-<p>一个简短的示例 LaTeX 文档：</p>
+<p>LaTeX 的中文支持方案主要有两类：ctex 和 xeCJK。其实在使用 xelatex 编译时，ctex 也是通过调用 xeCJK 来实现的。</p>
+<h3 id="1-ctex-的用法"><a href="#1-ctex-的用法" class="headerlink" title="1. ctex 的用法"></a>1. ctex 的用法</h3><p>ctex 中文支持的用法主要有两种，一是直接使用 ctex，二是使用 ctex 相关的文档类。</p>
+<p><strong>使用 ctex 的文档类例子：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">\documentclass&#123;ctexart&#125;</span><br><span class="line"></span><br><span class="line">\usepackage&#123;xeCJK&#125;</span><br><span class="line">\setCJKmainfont&#123;Microsoft YaHei&#125;</span><br><span class="line"></span><br><span class="line">\begin&#123;document&#125;</span><br><span class="line"></span><br><span class="line">\par 你好，世界!</span><br><span class="line"></span><br><span class="line">\end&#123;document&#125;</span><br></pre></td></tr></table></figure>
+
+<p>ctex 提供的文档类有：<code>ctexart、ctexrep、ctexbook、ctexbeamer</code>，这几个文档类其实就是 LaTeX 中默认的这几个文档类 <code>article、report、book、beamer</code> 的汉化版本。</p>
+<p><strong>使用 ctex 宏包的例子:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">\documentclass&#123;article&#125;  </span><br><span class="line">\usepackage[UTF8]&#123;ctex&#125;</span><br><span class="line"></span><br><span class="line">\begin&#123;document&#125;</span><br><span class="line"></span><br><span class="line">\par 你好，世界!</span><br><span class="line"></span><br><span class="line">\end&#123;document&#125;</span><br></pre></td></tr></table></figure>
+<p>在使用时，需要指定 UTF8 编码, 就是中括号里的 UTF8 <code>\usepackage[UTF8]{ctex}</code> </p>
+<p><strong>怎么选择使用哪一种方式呢？</strong></p>
+<ul>
+<li>如果编写的文档绝大部分是中文的，建议直接使用 ctex 的文档类</li>
+<li>如果编写的文档中英文都不少，建议使用 ctex 宏包</li>
+</ul>
+<h3 id="2-xeCJK-的用法"><a href="#2-xeCJK-的用法" class="headerlink" title="2. xeCJK 的用法"></a>2. xeCJK 的用法</h3><p>xeCJK 是比较底层的，如果很熟悉 xeCJK 的大佬，直接使用 xeCJK 会更顺手，一般用户还是使用 ctex 更方便些。</p>
+<p>xeCJK 例子：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">\documentclass&#123;article&#125;</span><br><span class="line"></span><br><span class="line">\usepackage&#123;xeCJK&#125;</span><br><span class="line">\setCJKmainfont&#123;Microsoft YaHei&#125;</span><br><span class="line"></span><br><span class="line">\begin&#123;document&#125;</span><br><span class="line"></span><br><span class="line">\par 你好，世界!</span><br><span class="line"></span><br><span class="line">\end&#123;document&#125;</span><br></pre></td></tr></table></figure>
 
-<p>在 TeXPage 中的效果:</p>
-<p><img src="https://latex-static-1251145186.cos.ap-shanghai.myqcloud.com/latex-zh-cn-demo.png" alt="cn-demo"></p>
 <p><code>\usepackage{xeCJK}</code> 是用来引入 xeCJK 包。</p>
 <p><code>\setCJKmainfont{Microsoft YaHei}</code> 是用来设置正文的中文字体, 大括号里填写的就是字体名称，这里填写的字体名称您的 LaTeX 编译环境中必须要有对应的字体。</p>
+<p>无论用哪种方式，TeXPage 都是支持的，可以在 TeXPage 中新建个文档体验下效果。<a href="https://www.texpage.com" target="_blank" rel="noopener">前往 TeXPage &gt;&gt;</a></p>
+<p>在 TeXPage 中的效果:</p>
+<p><img src="https://latex-static-1251145186.cos.ap-shanghai.myqcloud.com/latex-zh-cn-demo.png" alt="cn-demo"></p>
 <p>TeXPage 支持的中文字体列表：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">% 微软雅黑</span><br><span class="line">Microsoft YaHei</span><br><span class="line"></span><br><span class="line">% 宋体 </span><br><span class="line">SimSun</span><br><span class="line"></span><br><span class="line">% 黑体</span><br><span class="line">SimHei</span><br><span class="line"></span><br><span class="line">% 楷体</span><br><span class="line">KaiTi</span><br><span class="line"></span><br><span class="line">% 幼园</span><br><span class="line">YouYuan</span><br><span class="line"></span><br><span class="line">% 隶书</span><br><span class="line">LiSu</span><br><span class="line"></span><br><span class="line">% 仿宋</span><br><span class="line">FangSong</span><br></pre></td></tr></table></figure>
 <p><small>您在使用相关中文字体时，请留意相关字体的版权。</small></p>
