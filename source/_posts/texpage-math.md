@@ -1,7 +1,7 @@
 ---
 title: LaTeX 公式编辑器 
 date: 2020-07-24 20:32:00
-categories: TexPage 
+categories: TeXPage 
 ---
 
 使用 LaTeX 来编辑公式，效果非常棒，美中不足就是使用起来有些门槛，各种符号记不住。再加上不能实现所见即所得的编辑公式，影响编辑效率。所以就出现了一些 LaTeX 公式编辑器，TeXPage 也实现了一个体验友好的 LaTeX 公式编辑器。主要有以下几个特性： 
