@@ -1,5 +1,5 @@
 ---
-title: TeXPage V1.1.0 发布 
+title: TeXPage v1.1.0 发布 
 date: 2021-01-03 17:18:00
 categories: TeXPage
 ---
